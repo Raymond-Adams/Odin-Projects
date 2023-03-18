@@ -1,0 +1,16 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%; /* 1rem = 10px */
+	font-family: Verdana, sans-serif;
+}
+
+body {
+	margin: 0; /* Remove default margin */
+}
+
+header {
+	text-align: center;
+}
