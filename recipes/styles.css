@@ -10,6 +10,7 @@ html {
 body {
 	margin: 0; /* Remove default margin */
 	line-height: 1.6;
+	color: #374151;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -19,30 +20,41 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	display: inline-block;
 	font-size: 6rem;
-	color: #374151;
 	border-bottom: thick solid #a9792b;
+	margin-bottom: 2rem;
 }
 
 h2 {
 	margin-top: 0;
 	font-size: 3rem;
-	line-height: 1.25;
 }
 
 header {
 	text-align: center;
 } 
 
-section {
+.card {
 	width: 80%;
 	max-width: 80rem;
-	margin: 3rem auto;
-	padding: 2.5rem;
+	margin: 4rem auto;
+	padding: 3rem;
 	background-color: #f3f4f6;
 	border-radius: 0.5rem;
+	transition: 0.3s;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-.photo {
+.card:hover {
+	transform: scale(1.05);
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.unstyled {
+	text-decoration: none;
+	color: #374151;
+}
+
+.thumbnail {
 	margin-top: 0rem;
 	width: 100%;
 	max-height: 50rem;
