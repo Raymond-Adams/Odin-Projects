@@ -1,0 +1,169 @@
+:root {
+	--primary: #F9FAF8;
+	--secondary: #E5E7EB;
+	--dark: #1F2937;
+	--action: #3882F6;
+}
+
+body {
+	font-family: Verdana, sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	margin: 0;
+}
+
+.primary-bg {
+	background-color: var(--primary);
+	color: var(--dark);
+}
+
+.secondary-bg {
+	background-color: var(--secondary);
+	color: var(--dark);
+}
+
+.dark-bg {
+	background-color: var(--dark);
+	color: var(--primary);
+}
+
+.action-bg {
+	background-color: var(--action);
+	color: var(--primary);
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* Responsive margins */
+.wide {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.narrow {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.secondary-text {
+	color: #E5E7EB;
+	font-size: 18px;
+}
+
+header, section, footer {
+	padding: 16px 32px;
+}
+
+h1, h2, h3, figure, blockquote, p {
+	margin: 0;
+}
+
+h1 {
+	font-size: 48px;
+	font-weight: extra-bold;
+}
+
+h2 {
+	font-size: 36px;
+	font-weight: extra-bold;
+}
+
+h3 {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+ul {
+	list-style: none;
+	color: var(--secondary);
+	margin: 0;
+	padding: 0;
+	display: flex;
+	gap: 32px;
+}
+
+li a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.container-1 {
+	display: flex;
+	justify-content: center;
+	gap: 32px;
+	padding: 64px 0;
+}
+
+.content-1 {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	flex-shrink: 4;
+	gap: 16px;
+}
+
+.container-2 {
+	text-align: center;
+}
+
+.content-2 {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.item {
+	max-width: 150px;
+	margin: 8px;
+}
+
+.quote-container {
+	padding: 64px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 16px;
+}
+
+.quote-text {
+	font-size: 36px;
+	font-style: italic;
+}
+
+.action-container {
+	box-sizing: border-box;
+	border-radius: 8px;
+	margin: 64px auto;
+	padding: 32px 64px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+button {
+	background-color: var(--action);
+	color: var(--primary);
+	border: 2px solid var(--primary);
+	border-radius: 8px;
+	padding: 8px 32px;;
+}
+
+button:hover {
+	transform: scale(1.05);
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+}
+
+footer img {
+	width: 24px;
+}
