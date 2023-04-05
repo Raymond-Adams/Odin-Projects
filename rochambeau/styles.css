@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  font-family: Verdana, sans-serif;
+  background: linear-gradient(to right, #ece9e6, #ffffff);
+}
+
+header {
+  text-align: center;
+}
+
+header > h1 {
+  font: 52px 'Comfortaa', cursive;
+  display: inline-block;
+  border-bottom: 4px solid #bde3ef;
+  padding: 0 10px;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-container {
+  display: flex;
+  align-self: stretch;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.score {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+}
+
+.score h2 {
+  font-size: 24px;
+}
+
+.message {
+  margin: 40px;
+  font-size: 36px;
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 20px;
+  margin-bottom: 40px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+  transition: 0.3s;
+  width: 200px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card > h3 {
+  font-size: 18px;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+  background: #bde3ef;
+}
+
+.card > img {
+  align-self: center;
+  height: 120px;
+  width: 120px;
+  margin: 20px auto;
+  filter: invert(46%) sepia(0%) saturate(761%) hue-rotate(199deg) brightness(99%) contrast(78%);
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  padding: 8px;
+	gap: 8px;
+  color: #EEE;
+  background: linear-gradient(to right, #4b6cb7, #182848);
+}
+
+footer img {
+	width: 24px;
+  line-height: 0;
+}
