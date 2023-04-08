@@ -12,4 +12,24 @@ const renderGrid = (cols) => {
   }
   grid.replaceChildren(...cells);
 };
-renderGrid(9);
+
+let isMouseDown = false;
+
+const draw = (e) => {
+  if (!isMouseDown) return;
+  const cell = e.target;
+  cell.style.backgroundColor = 'red';
+  e.stopPropagation();
+  e.preventDefault();
+};
+
+renderGrid(16);
+document.querySelector('.grid').addEventListener('mousedown', () => {
+  isMouseDown = true;
+});
+document.querySelector('.grid').addEventListener('mouseup', () => {
+  isMouseDown = false;
+});
+[...document.querySelectorAll('.cell')].forEach((cell) => {
+  cell.addEventListener('mouseover', draw);
+});
