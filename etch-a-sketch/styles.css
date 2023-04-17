@@ -14,21 +14,30 @@ h1 {
 
 main {
   padding-bottom: 50px;
+  width: 80vw;
+  max-width: 600px;
+  margin: auto;
+}
+
+.options {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 8px;
 }
 
 .grid {
-  margin: auto;
+  box-sizing: border-box;
   display: grid;
   height: 80vw;
-  width: 80vw;
-  max-width: 600px;
   max-height: 600px;
+}
+
+.border {
   border: 1px solid white;
 }
 
 .cell {
   background: #ddd;
-  border: 1px solid white;
 }
 
 footer {
