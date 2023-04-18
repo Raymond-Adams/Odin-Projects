@@ -1,7 +1,6 @@
 let isMouseDown = false;
 let isBorderVisible = false;
-let colorType = 'brown';
-let gridSize = 24;
+let colorType = '#6EB7F2';
 
 const getRandomColor = () => `#${Math.random().toString(16).slice(-6)}`;
 const draw = (e) => {
@@ -18,8 +17,9 @@ const draw = (e) => {
   e.preventDefault();
 };
 
-const setColor = (e) => {
-  colorType = 'red';
+const setColor = () => {
+  const hex = document.querySelector('.change-color').value;
+  colorType = hex;
 };
 const setRainbowColor = () => {
   colorType = 'rainbow';
@@ -33,22 +33,25 @@ const toggleBorder = (e) => {
 };
 
 const renderGrid = () => {
+  const size = (() => {
+    const { value } = document.querySelector('.grid-size');
+    if (value > 64) return 64;
+    if (value < 4) return 4;
+    return value;
+  })();
   const grid = document.querySelector('.grid');
 
-  grid.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
-  grid.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
+  grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
   const cells = [];
-  for (let i = 0; i < gridSize ** 2; i += 1) {
+  for (let i = 0; i < size ** 2; i += 1) {
     const cell = document.createElement('div');
     cell.classList.add('cell');
     cells.push(cell);
   }
   grid.replaceChildren(...cells);
 
-  document.querySelector('.grid').addEventListener('mouseup', () => {
-    isMouseDown = false;
-  });
   [...document.querySelectorAll('.cell')].forEach((cell) => {
     cell.addEventListener('mouseover', draw);
     cell.addEventListener('mousedown', draw);
@@ -60,9 +63,21 @@ const renderGrid = () => {
   }
 };
 
-renderGrid();
+const addListeners = (...argsArr) => {
+  argsArr.forEach(([query, type, fn]) => {
+    const target = typeof query === 'string'
+      ? document.querySelector(query) : query;
+    target.addEventListener(type, fn);
+  });
+};
 
-document.querySelector('.change-color').addEventListener('click', setColor);
-document.querySelector('.rainbow').addEventListener('click', setRainbowColor);
-document.querySelector('.refresh-grid').addEventListener('click', renderGrid);
-document.querySelector('.toggle-border').addEventListener('click', toggleBorder);
+addListeners(
+  [window, 'mouseup', () => { isMouseDown = false; }],
+  ['.change-color', 'input', setColor],
+  ['.grid-size', 'input', renderGrid],
+  ['.refresh-grid', 'click', renderGrid],
+  ['.rainbow', 'click', setRainbowColor],
+  ['.toggle-border', 'click', toggleBorder],
+);
+renderGrid();
+setColor();
