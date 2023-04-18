@@ -23,6 +23,37 @@ main {
   display: flex;
   justify-content: space-around;
   margin-bottom: 8px;
+  height: 28px;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+input {
+  box-sizing: border-box;
+}
+
+/* Always show arrows in Chrome */
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 1
+}
+
+.change-color {
+  width: 28px;
+  height: 28px;
+}
+
+.grid-size {
+  width: 50px;
+  font-size: 14px;
+  padding: 4px;
+}
+
+button {
+  padding: 4px;
 }
 
 .grid {

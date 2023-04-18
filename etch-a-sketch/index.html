@@ -14,10 +14,15 @@
   </header>
   <main>
     <div class="options">
-      <button class="option change-color">Change Color</button>
-      <button class="option rainbow">Rainbow</button>
-      <button class="option refresh-grid">New Grid</button>
-      <button class="option toggle-border">Toggle Border</button>
+      <label>Color: 
+        <input class="change-color" type="color" value="#6EB7F2">
+      </label>
+      <label>Size: 
+        <input class="grid-size" type="number" min="4" max="64" step="1" value="24">
+      </label>
+      <button class="refresh-grid">New Grid</button>
+      <button class="rainbow">Rainbow</button>
+      <button class="toggle-border">Border</button>
     </div>
     <div class="grid"></div>
   </main>
