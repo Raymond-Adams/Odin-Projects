@@ -1,0 +1,105 @@
+:root {
+  --btn-red: rgb(241, 173, 173);
+  --calculator: gainsboro;
+  --screen: aliceblue;
+  --btn-default: beige;
+}
+
+html {
+  position: relative; /* prevent footer from overlapping */
+  min-height: 100%; /* keep footer at the bottom */
+}
+
+body {
+  font-family: Tahoma, sans-serif;
+  margin-bottom: 64px; /* min distance between footer and content */
+}
+
+header {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+main {
+  width: 100%;
+}
+
+.calculator {
+  box-sizing: border-box;
+  margin: auto;
+  padding: 24px;
+  width: 400px;
+  height: 500px;
+  background-color: var(--calculator);
+  border-radius: 16px;
+}
+
+.screen {
+  margin: auto;
+  height: 80px;
+  background-color: var(--screen);
+  border-radius: 6px;
+}
+
+.buttons {
+  margin-top: 16px;
+  display: flex;
+  gap: 16px;
+}
+
+.right-container, .left-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 50px;
+  background-color: var(--btn-default);
+  flex-grow: 1;
+  font-size: 24px;
+  border-radius: 4px;
+
+}
+
+.clear, .delete {
+  background-color: var(--btn-red);
+}
+
+.clear {
+  width: 136px;
+  flex-grow: 2;
+}
+
+.plus {
+  height: 120px;
+}
+
+.calculator, .screen, .button {
+  border: 2px solid #777;
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  margin: 0;
+  bottom: 0;
+  left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  padding-bottom: 16px;
+	gap: 8px;
+}
+
+footer img {
+	width: 24px;
+  line-height: 0;
+}
