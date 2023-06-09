@@ -47,6 +47,7 @@ main {
 }
 
 .screen {
+  overflow: hidden;
   margin: auto;
   padding: 4px 16px;
   height: 80px;
@@ -66,7 +67,7 @@ main {
 .current {
   height: 40px;
   line-height: 40px;
-  font-size: 36px;
+  font-size: 32px;
 }
 
 .buttons {
@@ -110,6 +111,10 @@ main {
 
 .clear {
   width: 150px;
+}
+
+.plus {
+  height: 120px;
 }
 
 footer {
