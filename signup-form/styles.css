@@ -1,3 +1,80 @@
-* {
+:root {
+  --logo-size: clamp(28px, 2vw + 1rem, 40px);
+  --logo-attribution-size: min(calc(1vw + 8px), 16px);
+  --form-bg: #f2f4f6;
+}
+
+*,
+*::after,
+*::before {
   box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(146 195 238);
+}
+
+.logo-container {
+  height: 100vh;
+  padding: 1.5rem 1rem;
+  background-image: url('imgs/unsplash-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 5 500px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+.logo-svg {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  margin-top: -4px;
+}
+
+.logo-heading {
+  margin: 0;
+  color: #eaeaea;
+  font: bold var(--logo-size) Comfortaa, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5ch;
+}
+
+.logo-attribution {
+  margin: 0;
+  color: #ddd;
+  font-size: var(--logo-attribution-size);
+}
+
+form {
+  flex: 2 2 800px;
+  background-color: var(--form-bg);
+}
+
+@media only screen and (width <= 600px) {
+  body {
+    flex-direction: column;
+  }
+
+  .logo-container {
+    flex-basis: 350px;
+  }
 }
