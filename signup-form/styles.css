@@ -1,7 +1,10 @@
 :root {
-  --logo-size: clamp(28px, 2vw + 1rem, 40px);
+  --logo-size: min(calc(1vw + 20px), 32px);
   --logo-attribution-size: min(calc(1vw + 8px), 16px);
-  --form-bg: #f2f4f6;
+  --link-color: rgb(71 137 195);
+  --main-bg: #f2f4f6;
+  --form-submit-bg: #f19e19;
+  --form-font-color: #343434;
 }
 
 *,
@@ -20,7 +23,7 @@ body {
 
 a {
   text-decoration: none;
-  color: rgb(146 195 238);
+  color: var(--link-color);
 }
 
 .logo-container {
@@ -33,7 +36,7 @@ a {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  flex: 1 5 500px;
+  flex: 1 1 600px;
 }
 
 .logo {
@@ -64,17 +67,91 @@ a {
   font-size: var(--logo-attribution-size);
 }
 
-form {
-  flex: 2 2 800px;
-  background-color: var(--form-bg);
+.form-container {
+  background-color: var(--main-bg);
+  flex: 1 1 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
 }
 
-@media only screen and (width <= 600px) {
+.form {
+  padding: 2rem;
+  color: var(--form-font-color);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form-heading {
+  margin: 2rem;
+}
+
+.form-subheading {
+  border-bottom: 2px solid var(--form-submit-bg);
+  padding-bottom: 0.2rem;
+  margin: 0 auto 1rem;
+  font-size: 1.5rem;
+  color: black;
+}
+
+fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  border: none;
+  justify-content: space-between;
+  position: relative;
+  gap: 1rem;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 1;
+}
+
+input {
+  padding: 0.5rem;
+}
+
+.form-submit {
+  width: 100%;
+  margin: 1rem auto 0;
+  padding: 1rem;
+  background-color: var(--form-submit-bg);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+}
+
+.form-submit:hover {
+  background-color: #d48c19;
+}
+
+.form-submit:active {
+  transform: scale(0.95);
+}
+
+.form-login {
+  margin-top: 1rem;
+  color: rgb(85, 85, 85);
+}
+
+@media only screen and (width <= 800px) {
   body {
     flex-direction: column;
   }
 
   .logo-container {
     flex-basis: 350px;
+  }
+
+  .form-container {
+    flex: 1;
   }
 }
