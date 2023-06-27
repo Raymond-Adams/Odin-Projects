@@ -1,10 +1,15 @@
 :root {
+  --system-ui: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   --logo-size: min(calc(1vw + 20px), 32px);
   --logo-attribution-size: min(calc(1vw + 8px), 16px);
   --link-color: rgb(71 137 195);
+  --form-primary: #343434;
+  --form-secondary: #f19e19;
+  --form-tertiary: #636363;
   --main-bg: #f2f4f6;
-  --form-submit-bg: #f19e19;
-  --form-font-color: #343434;
+  --form-submit-hover: #d48c19;
+  --form-font-size: clamp(0.75rem, 0.75vw + 0.5rem, 1.2rem);
 }
 
 *,
@@ -14,11 +19,10 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--system-ui);
   margin: 0;
-  padding: 0;
   display: flex;
+  line-height: 1.5;
 }
 
 a {
@@ -26,8 +30,13 @@ a {
   color: var(--link-color);
 }
 
+button,
+input {
+  font: inherit;
+}
+
 .logo-container {
-  height: 100vh;
+  min-height: 100vh;
   padding: 1.5rem 1rem;
   background-image: url('imgs/unsplash-bg.jpg');
   background-position: center;
@@ -36,7 +45,7 @@ a {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  flex: 1 1 600px;
+  flex: 1 1 35%;
 }
 
 .logo {
@@ -69,32 +78,32 @@ a {
 
 .form-container {
   background-color: var(--main-bg);
-  flex: 1 1 900px;
+  flex: 1 1 65%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   padding: 2rem;
+  font-size: var(--form-font-size);
 }
 
 .form {
-  padding: 2rem;
-  color: var(--form-font-color);
+  padding: 1rem;
+  color: var(--form-primary);
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
 .form-heading {
-  margin: 2rem;
+  margin: 0;
 }
 
 .form-subheading {
-  border-bottom: 2px solid var(--form-submit-bg);
+  border-bottom: 2px solid var(--form-secondary);
   padding-bottom: 0.2rem;
-  margin: 0 auto 1rem;
-  font-size: 1.5rem;
-  color: black;
+  margin: 1rem auto;
+  font-size: calc(var(--form-font-size) + 0.25rem);
 }
 
 fieldset {
@@ -104,13 +113,15 @@ fieldset {
   justify-content: space-between;
   position: relative;
   gap: 1rem;
+  padding: 0;
+  margin: 0;
 }
 
 .form-item {
   display: flex;
   flex-direction: column;
   text-align: left;
-  flex: 1;
+  flex: 1 0 250px;
 }
 
 input {
@@ -121,7 +132,7 @@ input {
   width: 100%;
   margin: 1rem auto 0;
   padding: 1rem;
-  background-color: var(--form-submit-bg);
+  background-color: var(--form-secondary);
   color: white;
   font-size: 1.5rem;
   font-weight: 500;
@@ -130,25 +141,27 @@ input {
 }
 
 .form-submit:hover {
-  background-color: #d48c19;
+  background-color: var(--form-submit-hover);
+  cursor: pointer;
 }
 
 .form-submit:active {
-  transform: scale(0.95);
+  transform: scale(0.98);
 }
 
 .form-login {
   margin-top: 1rem;
-  color: rgb(85, 85, 85);
+  color: var(--form-tertiary);
 }
 
-@media only screen and (width <= 800px) {
+@media only screen and (width <= 850px) {
   body {
     flex-direction: column;
   }
 
   .logo-container {
-    flex-basis: 350px;
+    min-height: 350px;
+    height: 350px;
   }
 
   .form-container {
