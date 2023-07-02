@@ -56,7 +56,7 @@ const operationHandler = (e) => {
   if (/[+\-×÷]/.test(screen.current) && !(/[+\-×÷]/.test(screen.current.slice(-1)))) {
     screen.last = `${screen.current}=`;
     const result = ops[op](+a, +b);
-    screen.current = result > 9e9 ? result.toExponential(5) : result;
+    screen.current = result > 9e9 ? result.toExponential(5) : result.toString().slice(0, 8);
   }
   if (key !== '=') screen.current += key;
 };
