@@ -1,0 +1,209 @@
+:root {
+  --system-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  --welcome-color: black;
+  --welcome-bg: linear-gradient(45deg, #83a4d4, #b6fbff);
+  --welcome-base: clamp(1.5rem, 2vw + 0.75rem, 2.5rem);
+  --wave-color: #3d9bb6;
+  --header-bg: #e3e3e3be;
+  --profile-link: rgb(39 101 215);
+  --nav-link: #333;
+  --nav-font-size: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+  --section-base: clamp(1.2rem, 1vw + 0.75rem, 1.6rem);
+  --odin-logo: url("data:image/svg+xml,%3Csvg viewBox='0 0 44 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.68927 35.4922L13.148 20.0493H30.9831L35.4419 35.4922H8.68927Z' fill='%23EED9C3'/%3E%3Cellipse cx='27.7848' cy='27.8815' rx='1.26005' ry='1.24284' fill='%23353535'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M19.446 26.4685C19.446 26.0344 19.0892 25.6826 18.6493 25.6826C17.6381 25.6826 15.9035 25.6826 14.8922 25.6826C14.4524 25.6826 14.0955 26.0344 14.0955 26.4685C14.0955 27.1449 14.0955 28.1309 14.0955 28.9019C14.0955 29.5527 14.6306 30.0805 15.2903 30.0805C15.6996 30.0805 16.1763 30.0805 16.6579 30.0805C17.3973 30.0805 18.1063 29.7907 18.6295 29.2748C19.1523 28.7594 19.446 28.0597 19.446 27.3305C19.446 27.0178 19.446 26.7214 19.446 26.4685Z' fill='%23A78347'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M35.0003 5.29008L43.8516 0.759277L39.0002 18.7593L35.0002 22.7593L35.0003 5.29008Z' fill='%23E3B261'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.85146 5.29008L0.000193596 0.759277L4.85162 18.7593L8.85162 22.7593L8.85146 5.29008Z' fill='%23E3B261'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M35.4419 13.5028C35.4419 13.5028 28.7537 9.10498 22.0656 9.10498C15.3774 9.10498 8.68927 13.5028 8.68927 13.5028V26.6964L10.4728 30.2147C11.7525 25.352 17.5443 23.3263 21.5759 26.3314L22.0656 26.6964L22.5553 26.3314C26.5868 23.3263 32.3786 25.352 33.6583 30.2147L35.4419 26.6964V13.5028Z' fill='%23E3B261'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M17.6068 33.2935L14.0398 53.9634L9.12134 50.4451L13.148 35.4924L17.6068 33.2935Z' fill='%23D4D4D4'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M26.5244 33.2935L30.0914 53.9634L35.0098 50.4451L30.9831 35.4924L26.5244 33.2935Z' fill='%23D5D5D5'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.68927 26.6968L5.12225 39.8904L9.58102 48.6861L13.148 35.4925L8.68927 26.6968Z' fill='%23E6E6E6'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M35.4418 26.6968L39.0089 39.8904L34.5501 48.6861L30.9831 35.4925L35.4418 26.6968Z' fill='%23E6E6E6'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M17.6068 33.2937L13.5939 54.8432L22.0655 59.2411L30.5372 54.8432L26.5243 33.2937L22.3981 31.2588L22.0655 31.0947L17.6068 33.2937Z' fill='%23E6E6E6'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M23.6636 34.1729H20.5425C20.5425 34.1729 20.5425 34.694 20.5425 35.2732C20.5425 35.6813 20.707 36.0723 20.9995 36.3608C21.292 36.6493 21.6884 36.8116 22.1022 36.8116C22.1026 36.8116 22.1035 36.8116 22.1039 36.8116C22.5177 36.8116 22.9141 36.6493 23.2066 36.3608C23.4991 36.0723 23.6636 35.6813 23.6636 35.2732C23.6636 34.694 23.6636 34.1729 23.6636 34.1729Z' fill='%23353535'/%3E%3C/svg%3E%0A");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arvo, var(--system-ui);
+  line-height: 1.5;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: 1rem;
+  background: var(--header-bg);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.nav-items {
+  display: flex;
+  gap: 1.5rem;
+  font-size: var(--nav-font-size);
+}
+
+.nav-items a {
+  color: var(--nav-link);
+}
+
+#welcome-section {
+  height: 100vh;
+  background: var(--welcome-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Rubik, var(--system-ui);
+  font-size: var(--welcome-base);
+}
+
+.welcome-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome-heading {
+  margin: 0;
+  font-size: 2em;
+  color: var(--welcome-color);
+}
+
+.welcome-description {
+  font-size: 1em;
+}
+
+.waves-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.waves-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 190px;
+}
+
+.waves-divider .shape-fill {
+  fill: var(--wave-color);
+}
+
+#projects {
+  padding: 4rem 2rem;
+  text-align: center;
+  font-size: var(--section-base);
+}
+
+.project-tile-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-flow: row wrap;
+  padding: 0 2rem;
+}
+
+.project-tile {
+  color: black;
+  padding: 1em 2em;
+  background: rgb(0 0 0 / 5%);
+  box-shadow: 0 4px 4px 0 rgba(0 0 0 / 20%);
+  transition: 0.2s;
+  width: calc(7.5em + 5vw);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-tile:hover {
+  box-shadow: 0 6px 8px 0 rgba(0 0 0 / 20%);
+  transform: scale(1.01);
+}
+
+.project-tile-heading {
+  font-size: 1em;
+  min-width: 1.5em;
+}
+
+.project-tile-placeholder {
+  background-image: var(--odin-logo);
+  width: 100%;
+  min-width: 3em;
+  height: auto;
+  aspect-ratio: 44 / 60;
+  display: block;
+}
+
+.contact-heading,
+.projects-heading {
+  padding: 0 0.5rem;
+  margin: 0 auto 4rem;
+  display: inline-block;
+  font-size: 2em;
+  border-bottom: 4px solid var(--wave-color);
+}
+
+#contact {
+  padding: 4rem 2rem;
+  font-size: var(--section-base);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.contact-profile-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.contact-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: var(--profile-link);
+}
+
+.contact-icon {
+  width: 2rem;
+}
+
+@media only screen and (width <= 500px) {
+  #navbar {
+    justify-content: center;
+  }
+
+  .nav-items {
+    flex: 1;
+    justify-content: space-evenly;
+  }
+
+  .project-tile-container {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  .project-tile {
+    width: 8rem;
+    padding: 0.5rem 1rem;
+  }
+}

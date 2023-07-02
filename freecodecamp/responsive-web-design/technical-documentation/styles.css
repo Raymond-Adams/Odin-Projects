@@ -1,0 +1,98 @@
+:root {
+  box-sizing: border-box;
+  --sidebar-heading: #565862;
+  --sidebar-items: #838795;
+  --sidebar-border: #b7b7b7;
+  --sidebar-li-hover: rgb(32, 147, 182);
+  --main-size: clamp(0.75rem, 1vw + 0.5rem, 1.25rem);
+  --footer-size: min(1rem, 2vw + 0.5rem);
+}
+
+body {
+  font-family: 'Montserrat', Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-size: 16px;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+}
+
+#navbar {
+  line-height: 1.8;
+  padding: 1rem 2rem 1rem;
+  flex: 1 20rem;
+}
+
+#navbar h1 {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: var(--sidebar-heading);
+}
+
+#navbar ul {
+  padding-left: 2rem;
+  border-left: 2px solid var(--sidebar-border);
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--sidebar-items);
+}
+
+.nav-link:hover {
+  color: var(--sidebar-li-hover);
+}
+
+#main-doc {
+  flex: 999 0;
+  min-inline-size: 50%;
+}
+
+.main-section {
+  margin: auto;
+  padding: 0 1rem;
+  max-width: 60ch;
+  font-size: var(--main-size);
+}
+
+.main-section header {
+  font-weight: bold;
+  font-size: min(calc(var(--main-size) + 1vw), 2rem);
+  line-height: 2;
+}
+
+.main-section code {
+  background: #f7f7f7;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 16px;
+  gap: 1rem;
+  font-size: var(--footer-size);
+}
+
+.footer-icon {
+  width: calc(var(--footer-size) + 0.5rem);
+  height: 100%;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.footer-icon:hover {
+  transform: translateY(-8px) scale(1.2);
+}
+
+/* No need for a media query because of flexbox and clamp */
+@media (hover: hover) {
+  placeholder-tag:hover {
+    color: limegreen;
+    transition-duration: 1s;
+  }
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <title>How the Web Works</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>
+        <h1>How the web works</h1>
+      </header>
+      <ul>
+        <a class="nav-link" href="#Clients_and_servers">
+          <li>Clients and servers</li>
+        </a>
+        <a class="nav-link" href="#The_other_parts_of_the_toolbox">
+          <li>The other parts of the toolbox</li>
+        </a>
+        <a class="nav-link" href="#So_what_happens_exactly">
+          <li>So what happens exactly</li>
+        </a>
+        <a class="nav-link" href="#Order_in_which_component_files_are_parsed">
+          <li>Order in which component files are parsed</li>
+        </a>
+        <a class="nav-link" href="#DNS_explained">
+          <li>DNS explained</li>
+        </a>
+        <a class="nav-link" href="#Packets_explained">
+          <li>Packets explained</li>
+        </a>
+        <a class="nav-link" href="#Reference">
+          <li>Reference</li>
+        </a>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <section id="Clients_and_servers" class="main-section">
+        <header>Clients and servers</header>
+        <p>Clients are the typical web user's internet-connected devices (for example, your computer connected to your Wi-Fi, or your phone connected to your mobile network) and web-accessing software available on those devices (usually a web browser like Firefox or Chrome).</p>
+        <p>Servers are computers that store webpages, sites, or apps. When a client device wants to access a webpage, a copy of the webpage is downloaded from the server onto the client machine to be displayed in the user's web browser.</p>
+      </section>
+      <section id="The_other_parts_of_the_toolbox" class="main-section">
+        <header>The other parts of the toolbox</header>
+        <p>The client and server we've described above don't tell the whole story. There are many other parts involved, and we'll describe them below.</p>
+        <p>For now, let's imagine that the web is a road. On one end of the road is the client, which is like your house. On the other end of the road is the server, which is a shop you want to buy something from.</p>
+        <p>In addition to the client and the server, we also need to say hello to:</p>
+        <ul>
+          <li>Your internet connection: Allows you to send and receive data on the web. It's basically like the street between your house and the shop.</li>
+          <li>TCP/IP: Transmission Control Protocol and Internet Protocol are communication protocols that define how data should travel across the internet. This is like the transport mechanisms that let you place an order, go to the shop, and buy your goods. In our example, this is like a car or a bike (or however else you might get around).</li>
+          <li>
+            DNS: Domain Name System is like an address book for websites. When you type a web address in your browser, the browser looks at the DNS to find the website's IP address before it can retrieve the website. The browser needs to find out which server the website lives on, so it can send HTTP messages to the right place (see below). This is like looking up the address of the shop so you
+            can access it.
+          </li>
+          <li>HTTP: Hypertext Transfer Protocol is an application protocol that defines a language for clients and servers to speak to each other. This is like the language you use to order your goods.</li>
+          <li>Component files: A website is made up of many different files, which are like the different parts of the goods you buy from the shop. These files come in two main types:</li>
+          <ul>
+            <li>Code files: Websites are built primarily from HTML, CSS, and JavaScript, though you'll meet other technologies a bit later.</li>
+            <li>Assets: This is a collective name for all the other stuff that makes up a website, such as images, music, video, Word documents, and PDFs.</li>
+          </ul>
+        </ul>
+      </section>
+      <section id="So_what_happens_exactly" class="main-section">
+        <!-- Header punctuation seems to break fCC's tests -->
+        <header>So what happens exactly</header>
+        <p>When you type a web address into your browser (for our analogy that's like walking to the shop):</p>
+        <ol>
+          <li>The browser goes to the DNS server, and finds the real address of the server that the website lives on (you find the address of the shop).</li>
+          <li>The browser sends an HTTP request message to the server, asking it to send a copy of the website to the client (you go to the shop and order your goods). This message, and all other data sent between the client and the server, is sent across your internet connection using TCP/IP.</li>
+          <li>If the server approves the client's request, the server sends the client a "200 OK" message, which means "Of course you can look at that website! Here it is", and then starts sending the website's files to the browser as a series of small chunks called data packets (the shop gives you your goods, and you bring them back to your house).</li>
+          <li>The browser assembles the small chunks into a complete web page and displays it to you (the goods arrive at your door — new shiny stuff, awesome!).</li>
+        </ol>
+      </section>
+      <section id="Order_in_which_component_files_are_parsed" class="main-section">
+        <header>Order in which component files are parsed</header>
+        <p>When browsers send requests to servers for HTML files, those HTML files often contain <code>&lt;link&gt;</code> elements referencing external CSS stylesheets and <code>&lt;script&gt;</code> elements referencing external JavaScript scripts. It's important to know the order in which those files are parsed by the browser as the browser loads the page:</p>
+        <ul>
+          <li>The browser parses the HTML file first, and that leads to the browser recognizing any <code>&lt;link&gt;</code>-element references to external CSS stylesheets and any <code>&lt;script&gt;</code>-element references to scripts.</li>
+          <li>As the browser parses the HTML, it sends requests back to the server for any CSS files it has found from <code>&lt;link&gt;</code> elements, and any JavaScript files it has found from <code>&lt;script&gt;</code> elements, and from those, then parses the CSS and JavaScript.</li>
+          <li>The browser generates an in-memory DOM tree from the parsed HTML, generates an in-memory CSSOM structure from the parsed CSS, and compiles and executes the parsed JavaScript.</li>
+          <li>As the browser builds the DOM tree and applies the styles from the CSSOM tree and executes the JavaScript, a visual representation of the page is painted to the screen, and the user sees the page content and can begin to interact with it.</li>
+        </ul>
+      </section>
+      <section id="DNS_explained" class="main-section">
+        <header>DNS explained</header>
+        <p>Real web addresses aren't the nice, memorable strings you type into your address bar to find your favorite websites. They are special numbers that look like this: 63.245.215.20.</p>
+        <p>This is called an IP address, and it represents a unique location on the web. However, it's not very easy to remember, is it? That's why the Domain Name System was invented. This system uses special servers that match up a web address you type into your browser (like "mozilla.org") to the website's real (IP) address.</p>
+        <p>Websites can be reached directly via their IP addresses. You can use a DNS lookup tool to find the IP address of a website.</p>
+      </section>
+      <section id="Packets_explained" class="main-section">
+        <header>Packets explained</header>
+        <p>
+          Earlier we used the term "packets" to describe the format in which the data is sent from server to client. What do we mean here? Basically, when data is sent across the web, it is sent in thousands of small chunks. There are multiple reasons why data is sent in small packets. They are sometimes dropped or corrupted, and it's easier to replace small chunks when this happens. Additionally,
+          the packets can be routed along different paths, making the exchange faster and allowing many different users to download the same website at the same time. If each website was sent as a single big chunk, only one user could download it at a time, which obviously would make the web very inefficient and not much fun to use.
+        </p>
+      </section>
+      <section id="Reference" class="main-section">
+        <header>Reference</header>
+        <p>Taken from: <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works">"How the Web Works", MDN</a>.</p>
+      </section>
+    </main>
+    <footer class="footer">
+      Copyright © 2023 Raymond Adams
+      <a href="https://github.com/Raymond-Adams" target="_blank">
+        <svg viewBox="0 0 98 98" class="footer-icon" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+            fill="#24292f"
+          />
+        </svg>
+      </a>
+    </footer>
+  </body>
+</html>

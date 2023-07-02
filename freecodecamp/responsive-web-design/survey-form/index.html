@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Feedback Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1 id="title">Product Feedback Form</h1>
+        <p id="description">Thank you for taking time to provide feedback on our products.</p>
+      </header>
+      <form id="survey-form">
+        <label id="name-label" for="name">Name:</label>
+        <input id="name" type="text" name="name" placeholder="Enter your name" required />
+
+        <label id="email-label" for="email">Email:</label>
+        <input id="email" type="email" name="email" placeholder="Enter your email" required />
+
+        <label id="number-label" for="number">Age:</label>
+        <input id="number" type="number" name="number" min="12" max="120" placeholder="Enter your age" required />
+
+        <label for="dropdown">Product Size:</label>
+        <div class="select-wrapper" name>
+          <select id="dropdown" name="product-release" required>
+            <option disabled selected value>Select product size</option>
+            <option value="3x4">3" x 4"</option>
+            <option value="3.5x5">3.5" x 6"</option>
+            <option value="4x9">4" x 9"</option>
+          </select>
+        </div>
+
+        <fieldset>
+          <legend>Would you recommend our product to your friends and colleagues?</legend>
+          <label class="radio-label">
+            <input name="user-recommend" value="yes" type="radio" />
+            <span>Yes</span>
+          </label>
+          <label class="radio-label">
+            <input name="user-recommend" value="no" type="radio" />
+            <span>No</span>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>What aspects of our product are of value to you?</legend>
+          <label class="checkbox-label">
+            <input type="checkbox" name="features" value="price" />
+            <span>Price</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="features" value="size" />
+            <span>Size</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="features" value="quality" />
+            <span>Quality</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="features" value="design" />
+            <span>Design</span>
+          </label>
+        </fieldset>
+
+        <label id="comments-label" for="comments">Additional Comments:</label>
+        <textarea id="comments" name="comments" rows="5" placeholder="Enter your comments or suggestions here..."></textarea>
+
+        <button type="submit" id="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
