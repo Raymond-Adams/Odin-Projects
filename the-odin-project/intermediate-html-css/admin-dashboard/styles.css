@@ -10,19 +10,19 @@
 
 @font-face {
   font-family: 'Roboto';
-  src: local('Roboto') url('fonts/Regular.ttf');
+  src: local('Roboto') url('fonts/Roboto-Regular.ttf');
 }
 
 @font-face {
   font-family: 'Roboto';
-  src: local('Roboto') url('fonts/Regular-Bold.ttf');
+  src: local('Roboto') url('fonts/Roboto-Bold.ttf');
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'Roboto';
-  src: local('Roboto') url('fonts/Regular-Medium.ttf');
-  font-weight: medium;
+  src: local('Roboto') url('fonts/Roboto-Medium.ttf');
+  font-weight: 500;
 }
 
 body {
@@ -39,6 +39,11 @@ body {
 
 a {
   text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
 }
 
 #dashboard {
@@ -62,13 +67,16 @@ a {
 .header {
   --base-outline: #647c0077;
   --input-outline: #2378da;
+  --btn-primary: rgb(37 153 237);
+  --btn-primary-hover: rgb(12, 127, 209);
 
   padding: 1rem 2rem;
   background-color: var(--header);
   grid-area: header;
   color: white;
   display: grid;
-  grid-template-rows: 1fr 2fr;
+  row-gap: 1rem;
+  grid-template-rows: auto 1fr;
 }
 
 .header-top {
@@ -99,13 +107,77 @@ a {
   cursor: pointer;
 }
 
-.header-profile-photo {
+.header-avatar-small {
   cursor: pointer;
-  display: block;
   width: 32px;
   height: 32px;
   border-radius: 50%;
   box-shadow: 0 0 0 1px var(--base-outline);
+}
+
+.header-bottom {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.header-welcome {
+  grid-column-start: 2;
+}
+
+.header-avatar-large {
+  grid-row: 1 / span 2;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.header-heading {
+  display: inline;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.header-description {
+  display: inline;
+  margin: 0;
+  color: #fffd;
+}
+
+.header-btn-container {
+  grid-row-start: 2;
+  grid-column-start: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header-btn {
+  width: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  background-color: var(--btn-primary);
+  font-weight: 500;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.header-btn-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.header-btn:hover {
+  background-color: var(--btn-primary-hover);
 }
 
 /**********************
@@ -195,6 +267,14 @@ a {
 
   .header-search {
     width: 100%;
+  }
+
+  .header-avatar-large {
+    grid-row: 1 / 2;
+  }
+
+  .header-btn-container {
+    grid-column: 1 / span 2;
   }
 
   .sidebar {
