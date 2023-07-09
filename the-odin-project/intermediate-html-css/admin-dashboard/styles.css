@@ -10,18 +10,18 @@
 
 @font-face {
   font-family: 'Roboto';
-  src: local('Roboto') url('Roboto/Regular.ttf');
+  src: local('Roboto') url('fonts/Regular.ttf');
 }
 
 @font-face {
   font-family: 'Roboto';
-  src: local('Roboto') url('Roboto/Regular-Bold.ttf');
+  src: local('Roboto') url('fonts/Regular-Bold.ttf');
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'Roboto';
-  src: local('Roboto') url('Roboto/Regular-Medium.ttf');
+  src: local('Roboto') url('fonts/Regular-Medium.ttf');
   font-weight: medium;
 }
 
@@ -52,6 +52,67 @@ a {
     'sidebar header' 1fr
     'sidebar content' 4fr / 200px 3fr;
 }
+
+/**********************
+
+         HEADER
+
+***********************/
+
+.header {
+  --base-outline: #647c0077;
+  --input-outline: #2378da;
+
+  padding: 1rem 2rem;
+  background-color: var(--header);
+  grid-area: header;
+  color: white;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+}
+
+.header-top {
+  display: grid;
+  grid-template-columns: 24px 1fr 24px 30px;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.header-search {
+  width: 80%;
+  border: 1px solid var(--base-outline);
+  border-radius: 8px;
+  font: inherit;
+  padding: 0.25rem 0.5rem;
+}
+
+.header-search:focus {
+  outline: 2px solid var(--input-outline);
+}
+
+.header-icon {
+  height: 30px;
+  width: 30px;
+  border: 2px solid var(--base-outline);
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.header-profile-photo {
+  cursor: pointer;
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--base-outline);
+}
+
+/**********************
+
+        SIDEBAR
+
+***********************/
 
 .sidebar {
   padding-bottom: 1rem;
@@ -102,10 +163,11 @@ a {
   margin: 0;
 }
 
-.header {
-  background-color: var(--header);
-  grid-area: header;
-}
+/**********************
+
+        CONTENT
+
+***********************/
 
 .content {
   background-color: var(--content);
@@ -123,12 +185,16 @@ a {
   width: 1.5rem;
 }
 
-@media screen and (width <= 600px) {
+@media screen and (width <= 750px) {
   #dashboard {
     grid-template:
       'header' 2fr
       'content' 5fr
       'sidebar' 1fr;
+  }
+
+  .header-search {
+    width: 100%;
   }
 
   .sidebar {
